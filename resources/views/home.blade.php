@@ -7,11 +7,11 @@
         <title>Laravel</title>
 
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-        <link href="{{ assets('css/app.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 
     </head>
     <body>
         <div id="app"><main-component></main-component></div>
-        <script src="assets('js/app.js')"></script>
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>

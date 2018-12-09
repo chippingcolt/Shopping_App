@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 import {routes} from './routes';
 import MainComponent from './components/MainComponent.vue'
+import Home from './components/Home.vue'
+
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -10,7 +12,7 @@ Vue.use(Vuex);
 require('./bootstrap');
 
 const router = new VueRouter({
-    router,
+    routes,
     mode: 'history'
 });
 
@@ -18,7 +20,8 @@ const app = new Vue({
     el: '#app',
     router,
     components:{
-        MainComponent
+        MainComponent,
+        Home
     }
 
 });
