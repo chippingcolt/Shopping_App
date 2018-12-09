@@ -1,15 +1,16 @@
 <template>
     <v-app id="app">
+        <Header/>
         <router-view/>
     </v-app>
 </template>
 
 <script>
- import Home from './Header.vue';
+ import Header from './Header.vue';
     export default {
         name: 'main-component',
         components: {
-            Home
+            Header
         }
     }
 </script>
