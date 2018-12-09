@@ -1,13 +1,16 @@
 <template>
-    <div id="main">
-        <div class="content">
-            hello
-        </div>
-    </div>
+<div>
+    <Header/>
+</div>
 </template>
 <script>
+ import Header from './Header.vue';
+
 export default {
-    name: 'home'
+    name: 'Home',
+    components: {
+        Header
+    }
 }
 </script>
 
