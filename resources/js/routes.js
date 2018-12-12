@@ -30,5 +30,26 @@ export const routes = [
         name: 'Register',
         component: Register
     },
+    {
+        path: '/customers',
+        component: allCustomers,
+        meta: {
+            requiresAuth: true
+        },
+        children: [
+            {
+                path: '/',
+                component: CustomersList
+            },
+            {
+                path: 'new',
+                component: NewCustomer
+            },
+            {
+                path: ':id',
+                component: Customer
+            }
+        ]
+    }
 
 ]
