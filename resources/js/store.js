@@ -83,7 +83,7 @@ export default {
                     headers: {
                         // "X-Requested-With": `XMLHttpRequest`,
                         // "Content-Type": `application/json`,
-                        "Authorization": `Bearer ${context.state.currentUser.token}`
+                        "Authorization": `Bearer ${context.state.currentUser.token.token}`
                     }, payload
                 })
                 .then((Response) => {

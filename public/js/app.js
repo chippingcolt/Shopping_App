@@ -31202,7 +31202,7 @@ var user = Object(__WEBPACK_IMPORTED_MODULE_0__helpers_auth__["a" /* getLocalUse
         headers: {
           // "X-Requested-With": `XMLHttpRequest`,
           // "Content-Type": `application/json`,
-          "Authorization": "Bearer ".concat(context.state.currentUser.token)
+          "Authorization": "Bearer ".concat(context.state.currentUser.token.token)
         },
         payload: payload
       }).then(function (Response) {
