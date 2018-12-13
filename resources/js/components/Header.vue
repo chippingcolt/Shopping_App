@@ -6,13 +6,14 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items v-show="!isLoggedIn">
-        <v-btn raised :to="'home'">Home</v-btn>
-        <v-btn raised :to="'register'">Register</v-btn>
-        <v-btn raised :to="'login'">Login</v-btn>
+        <v-btn raised :to="'/'" exact>Home</v-btn>
+        <v-btn raised :to="'register'" exact>Register</v-btn>
+        <v-btn raised :to="'login'" exact>Login</v-btn>
     </v-toolbar-items>
     <v-toolbar-items v-show="isLoggedIn">
-        <v-btn raised :to="'customers'">Home</v-btn>
-        <v-btn raised @click.prevent="logout" >Logout</v-btn>
+        <v-btn raised :to="'/'" exact>Home</v-btn>
+        <v-btn raised :to="'products'" exact>Get All Products</v-btn>
+        <v-btn raised @click.prevent="logout" :to="'login'" exact>Logout</v-btn>
     </v-toolbar-items>
 </v-toolbar>
 </template>
@@ -27,7 +28,7 @@ export default {
     methods: {
         logout() {
             this.$store.commit('logout');
-            this.$router.push({path:'login'});
+            // this.$router.push({path:'login'});
         }
     }
 }

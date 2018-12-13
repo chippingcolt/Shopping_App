@@ -1,6 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\User;
+use App\Customer;
+use App\Product;
+use App\Review;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +15,7 @@ use Faker\Generator as Faker;
 | your application. Factories provide a convenient way to generate new
 | model instances for testing / seeding your application's database.
 |
-*/
+ */
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
@@ -27,21 +31,29 @@ $factory->define(App\Customer::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'phone' => $faker->phoneNumber,
-        'website' => $faker->url // secret
-        // 'remember_token' => str_random(10),
+        'website' => $faker->url
     ];
 });
 $factory->define(App\Product::class, function (Faker $faker) {
     return [
-        'user_id' => $faker->id,
+        'user_id' =>
+            function () {
+            return User::all()->random();
+        },
         'name' => $faker->name,
-        'description' => $faker->description,
+        'description' => $faker->text,
     ];
 });
 $factory->define(App\Review::class, function (Faker $faker) {
     return [
-        'product_ID' => $faker->id,
-        'seller_ID' => $faker->id,
-        'review' => $faker->description,
+        'user_id' =>
+            function () {
+            return User::all()->random();
+        },
+        'product_ID' =>
+            function () {
+            return Product::all()->random();
+        },
+        'review' => $faker->text,
     ];
 });

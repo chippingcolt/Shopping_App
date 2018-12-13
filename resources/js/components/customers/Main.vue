@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card-header">Customers</div>
+            <div class="v-subheader">Products</div>
             <div class="card-body">
                 <router-view></router-view>
             </div>
@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-    name: 'customers-main'
+    name: 'products-main'
 }
 </script>
 

@@ -1,8 +1,10 @@
 import Home from './components/Home.vue';
 import Login from './components/Login.vue';
 import Register from './components/Register.vue';
-import allCustomers from './components/customers/Main.vue';
-import CustomersList from './components/customers/List.vue';
+import allProducts from './components/customers/Main.vue';
+import productList from './components/customers/List.vue';
+import product from './components/customers/New.vue';
+
 export const routes = [
     {
         path: '/',
@@ -12,14 +14,14 @@ export const routes = [
             requiresAuth: true
         }
     },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home,
-        meta: {
-            requiresAuth: true
-        }
-    },
+    // {
+    //     path: '/home',
+    //     name: 'Home',
+    //     component: Home,
+    //     meta: {
+    //         requiresAuth: true
+    //     }
+    // },
     {
         path: '/login',
         name: 'Login',
@@ -31,25 +33,22 @@ export const routes = [
         component: Register
     },
     {
-        path: '/customers',
-        component: allCustomers,
+        path: '/products',
+        component: allProducts,
         meta: {
             requiresAuth: true
         },
         children: [
             {
                 path: '/',
-                component: CustomersList
+                component: productList
             },
-            // {
-            //     path: 'new',
-            //     component: NewCustomer
-            // },
-            // {
-            //     path: ':id',
-            //     component: Customer
-            // }
         ]
-    }
+    },
+    {
+        path: '/product/:id',
+        name: 'product',
+        component: product
+    },
 
 ]

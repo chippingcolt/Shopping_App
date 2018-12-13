@@ -175,6 +175,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        /** New providers  */
+        App\Providers\ProductServiceProvider::class,
+        App\Providers\ReviewServiceProvider::class,
+
+        
 
     ],
 

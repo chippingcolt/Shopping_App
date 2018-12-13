@@ -9,7 +9,7 @@ export default {
         isLoggedIn: !!user,
         loading: false,
         auth_error: null,
-        customers: [] 
+        products: [] 
     },
     getters:{
         isLoading(state){
@@ -24,8 +24,8 @@ export default {
         authError(state){
             return state.auth_error;
         },
-        customers(state){
-            return state.customers;
+        products(state){
+            return state.products;
         },
     },
     mutations:{
@@ -50,24 +50,48 @@ export default {
             state.isLoggedIn = false;
             state.currentUser = null;
         },
-        updateCustomers(state, payload){
+        updateproducts(state, payload){
             console.log("hello" + payload);
-            state.customers = payload;
+            state.products = payload;
         }
     },
     actions:{
         login(context){
             context.commit("login");
         },
-        getCustomers(context){
+        getProducts(context){
+            // console.log("goodbye" + context.state.currentUser.token.token);
             axios.get(
-                '/api/customers', {
+                '/api/getAllProducts', {
                     headers: {
-                        "Authorization": `Bearer ${context.state.currentUser.token}`
+                        // "X-Requested-With": `XMLHttpRequest`,
+                        // "Content-Type": `application/json`,
+                        "Authorization": `Bearer ${context.state.currentUser.token.token}`
                     }
                 })
                 .then((response) => {
-                    context.commit('updateCustomers', response.data.customers);
+                    // console.log(headers);
+                    // console.log(response.headers);
+                    
+                    context.commit('updateproducts', response.data);
+                })
+        },
+        sendReview(context, payload){
+            // console.log("goodbye" + context.state.currentUser.token.token);
+            axios.post(
+                '/api/createReview', {
+                    headers: {
+                        // "X-Requested-With": `XMLHttpRequest`,
+                        // "Content-Type": `application/json`,
+                        "Authorization": `Bearer ${context.state.currentUser.token}`
+                    }, payload
+                })
+                .then((Response) => {
+                    // res(Response.data);
+                    console.log(Response.data);
+                })
+                .catch((err) =>{
+                    rej("Wrong email or password");
                 })
         }
     }
