@@ -1,8 +1,8 @@
 import Home from './components/Home.vue';
 import Login from './components/Login.vue';
 import Register from './components/Register.vue';
-
-
+import allCustomers from './components/customers/Main.vue';
+import CustomersList from './components/customers/List.vue';
 export const routes = [
     {
         path: '/',
@@ -41,14 +41,14 @@ export const routes = [
                 path: '/',
                 component: CustomersList
             },
-            {
-                path: 'new',
-                component: NewCustomer
-            },
-            {
-                path: ':id',
-                component: Customer
-            }
+            // {
+            //     path: 'new',
+            //     component: NewCustomer
+            // },
+            // {
+            //     path: ':id',
+            //     component: Customer
+            // }
         ]
     }
 

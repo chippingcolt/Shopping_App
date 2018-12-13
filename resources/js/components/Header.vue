@@ -11,7 +11,7 @@
         <v-btn raised :to="'login'">Login</v-btn>
     </v-toolbar-items>
     <v-toolbar-items v-show="isLoggedIn">
-        <v-btn raised :to="'home'">Home</v-btn>
+        <v-btn raised :to="'customers'">Home</v-btn>
         <v-btn raised @click.prevent="logout" >Logout</v-btn>
     </v-toolbar-items>
 </v-toolbar>
